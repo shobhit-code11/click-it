@@ -6,7 +6,7 @@ import { Slide, Zoom, Flip, Bounce } from "react-toastify";
 
 const Camera = () => {
   const start = () => {
-    toast.success("right click on preview to save", {
+    toast.success("Downloading picture", {
       position: "bottom-center",
       autoClose: 3000,
       hideProgressBar: false,
@@ -129,7 +129,7 @@ const Camera = () => {
             ref={webcamRef}
             screenshotFormat="image/jpeg"
           />
-          <h1 className=" absolute top-8 ml-4 text-sm rounded-md   text-teal-50 bg-red-600 font-mono ">
+          <h1 className=" absolute top-8 ml-4 text-sm rounded-md animate-pulse   text-teal-50 bg-red-600 font-mono ">
             live capture
           </h1>
           {imgSrc && (
@@ -172,7 +172,7 @@ const Camera = () => {
           className="mt-4 ml-2  h-8 w-36 rounded-md hover:text-white hover:bg-green-400  ease-in-out duration-700   text-black font-mono bg-gray-300"
           onClick={capture}
         >
-          Capture photo
+          Download photo
         </button>
         {/* <button className="mt-4 ml-2  h-8 w-52 rounded-md hover:text-white hover:bg-green-400  ease-in-out duration-700   text-black font-mono bg-gray-300" >Click to save image</button> */}
         {/* <>
