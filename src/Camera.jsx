@@ -61,7 +61,14 @@ const Camera = () => {
   const capture = React.useCallback(() => {
     start();
     const imageSrc = webcamRef.current.getScreenshot();
+    localStorage.setItem("imageSrc",imageSrc);
     setImgSrc(imageSrc);
+
+    // download image
+    const a = document.createElement('a');
+    a.download = 'captured.jpeg'
+    a.href = imageSrc;
+    a.click();
   }, [webcamRef, setImgSrc]);
 
   const handleStartCaptureClick = useCallback(() => {
@@ -105,6 +112,7 @@ const Camera = () => {
       a.download = "react-webcam-stream-capture.webm";
       a.click();
       window.URL.revokeObjectURL(url);
+      localStorage.setItem("capturedVideoURL", "react-webcam-stream-capture.webm");
       setRecordedChunks([]);
     }
   }, [recordedChunks]);
